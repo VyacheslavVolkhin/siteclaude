@@ -1,9 +1,15 @@
+
 document.addEventListener("DOMContentLoaded", function() {
+	
+	//image zoom init
+	initDriftZoom();
 
 	//fancybox
 	Fancybox.bind("[data-fancybox]", {
 		//settings
 	});
+
+
 
 	//catalog menu header toggle
 	const catalogToggleButtons = document.querySelectorAll('.js-btn-catalog-toggle');
@@ -545,3 +551,42 @@ document.addEventListener("DOMContentLoaded", function() {
 	});
 
 })
+
+//image zoom
+function initDriftZoom() {
+	const zoomImages = document.querySelectorAll('.photo-zoom img');
+  
+	zoomImages.forEach(img => {
+	  if (img.dataset.driftInitialized) return;
+  
+	  const link = img.closest('a');
+	  if (!link) return;
+	  const largeImageUrl = link.getAttribute('href');
+  
+	  if (!img.hasAttribute('data-zoom')) {
+		img.setAttribute('data-zoom', largeImageUrl);
+	  }
+  
+	  const wrap = img.closest('.sl-wrap') || img.parentNode;
+	  let paneContainer = wrap.querySelector('.drift-zoom-pane');
+	  if (!paneContainer) {
+		paneContainer = document.createElement('div');
+		paneContainer.className = 'drift-zoom-pane';
+		wrap.style.position = 'relative';
+		wrap.appendChild(paneContainer);
+	  }
+  
+	  new Drift(img, {
+		paneContainer: paneContainer,
+		inlinePane: true,  // ← Главное изменение: было false, нужно true
+		zoomFactor: 3,
+		handleTouch: true,
+		sourceAttribute: 'data-zoom',
+		containInline: false,
+		hoverBoundingBox: false
+	  });
+  
+	  img.dataset.driftInitialized = 'true';
+	});
+  }
+  
