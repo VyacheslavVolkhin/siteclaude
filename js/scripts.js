@@ -503,7 +503,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 	//slider photos thumbs preview
-	document.querySelectorAll('.tiles-thumbs-slider-box').forEach(function(container) {
+		document.querySelectorAll('.tiles-thumbs-slider-box').forEach(function(container) {
 		const thumbsEl = container.querySelector('.slider-photos-thumbs .swiper');
 		const mainEl = container.querySelector('.slider-photos-main .swiper');
 		const nextTBtn = container.querySelector('.button-slider-photos-thumbs-next');
@@ -550,7 +550,207 @@ document.addEventListener("DOMContentLoaded", function() {
 		});
 	});
 
+
+	// cart: table-wrapper totals (data-table="table-price" | table-count | table-total | table-total-all")
+	initCartTableTotals();
+
 })
+
+function initCartTableTotals() {
+	const wrappers = document.querySelectorAll('.table-wrapper');
+	if (!wrappers.length) return;
+
+	function parseNumericText(str) {
+		if (str == null || str === '') return 0;
+		const cleaned = String(str).replace(/\s/g, '').replace(',', '.').replace(/[^\d.-]/g, '');
+		const n = parseFloat(cleaned);
+		return isNaN(n) ? 0 : n;
+	}
+
+	function unitPrice(wrapper) {
+		const el = wrapper.querySelector('[data-table="table-price"]');
+		return el ? parseNumericText(el.textContent) : 0;
+	}
+
+	function sumQty(wrapper) {
+		let sum = 0;
+		wrapper.querySelectorAll('table input[type="text"]').forEach(function (input) {
+			sum += parseNumericText(input.value);
+		});
+		return sum;
+	}
+
+	function formatMoneyRu(n) {
+		return Math.round(n).toLocaleString('ru-RU');
+	}
+
+	function setTotalNodeText(el, value, formatFn) {
+		el.textContent = formatFn(value);
+	}
+
+	let recalcT = null;
+	function scheduleRecalc() {
+		clearTimeout(recalcT);
+		recalcT = setTimeout(recalcAll, 0);
+	}
+
+	function getCartTotalsObserveRoot() {
+		const wraps = document.querySelectorAll('.table-wrapper');
+		if (!wraps.length) return null;
+
+		function ancestors(el) {
+			const list = [];
+			let n = el;
+			while (n) {
+				list.push(n);
+				n = n.parentElement;
+			}
+			return list;
+		}
+
+		let common = ancestors(wraps[0]);
+		for (let i = 1; i < wraps.length; i++) {
+			const a = ancestors(wraps[i]);
+			const set = new Set(a);
+			common = common.filter(function (node) {
+				return set.has(node);
+			});
+		}
+
+		const allEl = document.querySelector('[data-table="table-total-all"]');
+		if (allEl) {
+			const set = new Set(ancestors(allEl));
+			common = common.filter(function (node) {
+				return set.has(node);
+			});
+		}
+
+		return common[0] || null;
+	}
+
+	function recalcAll() {
+		let grand = 0;
+		document.querySelectorAll('.table-wrapper').forEach(function (wrapper) {
+			const price = unitPrice(wrapper);
+			const qty = sumQty(wrapper);
+			const lineTotal = price * qty;
+			grand += lineTotal;
+
+			const countEl = wrapper.querySelector('[data-table="table-count"]');
+			const totalEl = wrapper.querySelector('[data-table="table-total"]');
+			if (countEl) {
+				setTotalNodeText(countEl, qty, function (v) {
+					return Number.isInteger(v) || Math.abs(v - Math.round(v)) < 1e-9
+						? String(Math.round(v))
+						: String(v);
+				});
+			}
+			if (totalEl) {
+				setTotalNodeText(totalEl, lineTotal, formatMoneyRu);
+			}
+		});
+
+		const allEl = document.querySelector('[data-table="table-total-all"]');
+		if (allEl) {
+			setTotalNodeText(allEl, grand, formatMoneyRu);
+		}
+	}
+
+	function targetInWrapperTable(target) {
+		if (!target || !target.closest) return null;
+		const wrap = target.closest('.table-wrapper');
+		if (!wrap) return null;
+		const table = wrap.querySelector('table');
+		if (!table || !table.contains(target)) return null;
+		return wrap;
+	}
+
+	document.addEventListener(
+		'click',
+		function (e) {
+			if (targetInWrapperTable(e.target)) queueMicrotask(recalcAll);
+		},
+		false
+	);
+
+	document.addEventListener(
+		'input',
+		function (e) {
+			if (e.target.matches && e.target.matches('table input[type="text"]') && e.target.closest('.table-wrapper')) {
+				scheduleRecalc();
+			}
+		},
+		false
+	);
+
+	document.addEventListener(
+		'change',
+		function (e) {
+			if (e.target.matches && e.target.matches('table input[type="text"]') && e.target.closest('.table-wrapper')) {
+				recalcAll();
+			}
+		},
+		false
+	);
+
+	document.addEventListener(
+		'focusout',
+		function (e) {
+			if (e.target.matches && e.target.matches('table input[type="text"]') && e.target.closest('.table-wrapper')) {
+				recalcAll();
+			}
+		},
+		true
+	);
+
+	document.addEventListener(
+		'mouseup',
+		function (e) {
+			if (targetInWrapperTable(e.target)) recalcAll();
+		},
+		false
+	);
+
+	document.addEventListener(
+		'touchend',
+		function (e) {
+			if (targetInWrapperTable(e.target)) recalcAll();
+		},
+		false
+	);
+
+	const observeRoot = getCartTotalsObserveRoot();
+	if (observeRoot) {
+		new MutationObserver(function (records) {
+			for (let r = 0; r < records.length; r++) {
+				const rec = records[r];
+				let i;
+				for (i = 0; i < rec.removedNodes.length; i++) {
+					const n = rec.removedNodes[i];
+					if (
+						n.nodeType === 1 &&
+						(n.classList.contains('table-wrapper') || n.querySelector('.table-wrapper'))
+					) {
+						scheduleRecalc();
+						return;
+					}
+				}
+				for (i = 0; i < rec.addedNodes.length; i++) {
+					const n = rec.addedNodes[i];
+					if (
+						n.nodeType === 1 &&
+						(n.classList.contains('table-wrapper') || n.querySelector('.table-wrapper'))
+					) {
+						scheduleRecalc();
+						return;
+					}
+				}
+			}
+		}).observe(observeRoot, { childList: true, subtree: true });
+	}
+
+	recalcAll();
+}
 
 //image zoom
 function initDriftZoom() {

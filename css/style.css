@@ -2114,6 +2114,9 @@ html.with-fancybox body.hide-scrollbar {
   letter-spacing: -0.02em;
   color: var(--clr-base-title);
 }
+.item-tile-cart .tile-total-count {
+  display: none;
+}
 .item-tile-cart .tile-main-wrap {
   margin-bottom: 20px;
   display: -webkit-box;
@@ -2156,6 +2159,9 @@ html.with-fancybox body.hide-scrollbar {
 }
 .item-tile-cart .tile-info:last-child {
   margin-bottom: 0;
+}
+.item-tile-cart .tile-info a:not(:hover) {
+  color: inherit;
 }
 .item-tile-cart .tile-total {
   font-weight: 600;
@@ -2461,9 +2467,7 @@ html.with-fancybox body.hide-scrollbar {
   font-size: 12px;
   line-height: 1.26;
   letter-spacing: 0.04em;
-  text-decoration: underline;
-  -webkit-text-decoration-skip-ink: none;
-  text-decoration-skip-ink: none;
+  text-decoration: none;
   text-align: center;
   color: var(--clr-base-light);
   margin-bottom: 5px;
@@ -4649,6 +4653,13 @@ html.with-fancybox body.hide-scrollbar {
   }
 }
 @media (min-width: 1024px) {
+  .wrap:has(.type-sticky) {
+    overflow: visible;
+  }
+  .type-sticky {
+    position: sticky;
+    top: 20px;
+  }
   .form-content-box {
     max-width: 925px;
   }
