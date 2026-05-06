@@ -1010,6 +1010,9 @@ html.with-fancybox body.hide-scrollbar {
   display: -ms-flexbox;
   display: flex;
 }
+.catalog-header-popup .catalog-menu-box .submenu-action-wrap .photo-title-wrap {
+  display: none;
+}
 @media (max-width: 1023px) {
   .catalog-show,
   .menu-show,
@@ -3864,6 +3867,7 @@ html.with-fancybox body.hide-scrollbar {
 .article-new-box {
   margin-bottom: var(--sectionMargin);
   position: relative;
+  font-weight: 400;
 }
 .article-new-box .title-inner-wrap {
   margin-bottom: 7rem;
@@ -4285,6 +4289,18 @@ html.with-fancybox body.hide-scrollbar {
   }
   .catalog-menu-box {
     border-top: 1px solid rgba(0, 0, 0, 0.1);
+  }
+  .catalog-menu-box .submenu-action-wrap {
+    display: none;
+  }
+  .catalog-menu-box .submenu-action-wrap.wrap-main {
+    display: none;
+  }
+  .catalog-menu-box:has(.menu-inner-wrap) .filter-inner-wrap {
+    display: none;
+  }
+  .catalog-menu-box .tags-inner-wrap:has(:checked) + .menu-inner-wrap:has(:checked) ~ .filter-inner-wrap {
+    display: block;
   }
   .catalog-menu-box .main-menu-inner-wrap {
     display: none;
@@ -4791,6 +4807,18 @@ html.with-fancybox body.hide-scrollbar {
     min-height: 68.3rem;
     background: var(--clr-bg-light);
   }
+  .catalog-menu-box:has(.main-menu-inner-wrap) .menu-content-outer-wrap {
+    display: none;
+  }
+  .catalog-menu-box .main-menu-inner-wrap:has(.active) ~ .menu-content-outer-wrap {
+    display: block;
+  }
+  .catalog-menu-box:has(.menu-inner-wrap) .filter-inner-wrap {
+    display: none;
+  }
+  .catalog-menu-box .tags-inner-wrap:has(:checked) + .menu-inner-wrap:has(:checked) ~ .filter-inner-wrap {
+    display: block;
+  }
   .catalog-menu-box:has(.menu-empty.active) .submenu-action-wrap {
     width: auto;
     -webkit-box-flex: 1;
@@ -4869,10 +4897,20 @@ html.with-fancybox body.hide-scrollbar {
     min-width: 200px;
     width: auto;
   }
+  .catalog-menu-box .active ~ .wrap-main {
+    display: none;
+  }
   .catalog-menu-box .submenu-action-wrap {
     width: 51.6rem;
     -ms-flex-negative: 0;
     flex-shrink: 0;
+  }
+  .catalog-menu-box .submenu-action-wrap.wrap-main {
+    width: auto;
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    max-width: 100%;
   }
   .catalog-menu-box .submenu-action-wrap .elm-photo {
     aspect-ratio: inherit;
@@ -5190,6 +5228,12 @@ html.with-fancybox body.hide-scrollbar {
 }
 @media (min-width: 1024px) and (max-width: 1199px) {
   .catalog-menu-box .submenu-action-wrap {
+    display: none;
+  }
+  .catalog-menu-box .submenu-action-wrap.wrap-main {
+    display: block;
+  }
+  .catalog-menu-box .active ~ .wrap-main {
     display: none;
   }
   .catalog-menu-box .menu-content-outer-wrap {
@@ -6357,7 +6401,8 @@ select.form-input:required:invalid {
 .frm-select,
 .frm-select-sticker,
 .frm-select-ico,
-.frm-select-button {
+.frm-select-button,
+.frm-select-text {
   position: relative;
   display: block;
   overflow: hidden;
@@ -6368,7 +6413,8 @@ select.form-input:required:invalid {
 .frm-select input,
 .frm-select-sticker input,
 .frm-select-ico input,
-.frm-select-button input {
+.frm-select-button input,
+.frm-select-text input {
   display: block;
   position: absolute;
   top: 0;
@@ -6382,13 +6428,15 @@ select.form-input:required:invalid {
 .frm-select input:checked ~ label:after,
 .frm-select-sticker input:checked ~ label:after,
 .frm-select-ico input:checked ~ label:after,
-.frm-select-button input:checked ~ label:after {
+.frm-select-button input:checked ~ label:after,
+.frm-select-text input:checked ~ label:after {
   opacity: 1;
 }
 .frm-select label,
 .frm-select-sticker label,
 .frm-select-ico label,
-.frm-select-button label {
+.frm-select-button label,
+.frm-select-text label {
   display: block;
   position: relative;
   cursor: pointer;
@@ -6397,10 +6445,12 @@ select.form-input:required:invalid {
 .frm-select-sticker label:before,
 .frm-select-ico label:before,
 .frm-select-button label:before,
+.frm-select-text label:before,
 .frm-select label:after,
 .frm-select-sticker label:after,
 .frm-select-ico label:after,
-.frm-select-button label:after {
+.frm-select-button label:after,
+.frm-select-text label:after {
   content: "";
   display: block;
   position: absolute;
@@ -6408,7 +6458,8 @@ select.form-input:required:invalid {
 .frm-select label:after,
 .frm-select-sticker label:after,
 .frm-select-ico label:after,
-.frm-select-button label:after {
+.frm-select-button label:after,
+.frm-select-text label:after {
   opacity: 0;
 }
 .frm-select input[type="radio"] ~ label:before {
@@ -6462,6 +6513,24 @@ select.form-input:required:invalid {
 }
 .frm-select a:hover {
   color: var(--clr-att);
+}
+.frm-select-text {
+  -webkit-transition: all ease 0.2s;
+  transition: all ease 0.2s;
+  color: #272727;
+  font-weight: 400;
+}
+.frm-select-text input:checked ~ label {
+  font-weight: 800;
+}
+.frm-select-text:hover {
+  color: var(--clr-base);
+}
+.frm-select-text label {
+  line-height: 20px;
+  display: block;
+  padding: 5px 0;
+  cursor: pointer;
 }
 .frm-select-button {
   font-weight: 600;
@@ -7978,9 +8047,18 @@ input.form-clear-autofill::-webkit-contacts-auto-fill-button {
 @font-face {
   font-family: "Outfit";
   src:
-    url("../fonts/Outfit-Regular.woff2") format("woff2"),
-    url("../fonts/Outfit-Regular.woff") format("woff");
-  font-weight: normal;
+    url("../fonts/Outfit-Bold.woff2") format("woff2"),
+    url("../fonts/Outfit-Bold.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Outfit";
+  src:
+    url("../fonts/Outfit-Light.woff2") format("woff2"),
+    url("../fonts/Outfit-Light.woff") format("woff");
+  font-weight: 300;
   font-style: normal;
   font-display: swap;
 }
@@ -7996,27 +8074,18 @@ input.form-clear-autofill::-webkit-contacts-auto-fill-button {
 @font-face {
   font-family: "Outfit";
   src:
+    url("../fonts/Outfit-Regular.woff2") format("woff2"),
+    url("../fonts/Outfit-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Outfit";
+  src:
     url("../fonts/Outfit-SemiBold.woff2") format("woff2"),
     url("../fonts/Outfit-SemiBold.woff") format("woff");
   font-weight: 600;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: "Outfit";
-  src:
-    url("../fonts/Outfit-Bold.woff2") format("woff2"),
-    url("../fonts/Outfit-Bold.woff") format("woff");
-  font-weight: bold;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: "Outfit";
-  src:
-    url("../fonts/Outfit-Light.woff2") format("woff2"),
-    url("../fonts/Outfit-Light.woff") format("woff");
-  font-weight: 300;
   font-style: normal;
   font-display: swap;
 }
