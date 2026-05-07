@@ -110,6 +110,22 @@ document.addEventListener("DOMContentLoaded", function() {
 		content.classList.add("active");
 		});
 	}
+	document.querySelectorAll('.catalog-menu-box').forEach((catalogBox) => {
+		catalogBox.addEventListener('change', (e) => {
+			const changedInput = e.target;
+	
+			if (!changedInput.matches('.tags-inner-wrap input')) return;
+	
+			catalogBox
+				.querySelectorAll('.menu-inner-wrap input:checked')
+				.forEach((menuInput) => {
+					menuInput.checked = false;
+				});
+		});
+	});
+
+
+	
 	
 
 
@@ -542,7 +558,7 @@ document.addEventListener("DOMContentLoaded", function() {
 				clickable: true,
 			},
 			autoplay: {
-				delay: 4000,
+				delay: 5000,
 				disableOnInteraction: false,
 			},
 			navigation:false,

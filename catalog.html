@@ -8,6 +8,7 @@
         <meta name="description" content="" />
         <meta name="author" content="" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no?"> -->
         <link rel="stylesheet" href="./css/reset.css" />
         <link rel="stylesheet" href="./css/fancybox.css" />
         <link rel="stylesheet" href="./css/swiper-bundle.min.css" />
@@ -429,7 +430,13 @@
                                     <ul class="menu">
                                         <li>
                                             <div class="frm-select-sticker bg-violet">
-                                                <input type="radio" name="menu01-stickers" id="menu01-st01" />
+                                                <input
+                                                    type="radio"
+                                                    name="menu01-stickers"
+                                                    id="menu01-st01"
+                                                    checked
+                                                    data-content="menu01-select01"
+                                                />
                                                 <label for="menu01-st01">
                                                     <div class="lbl-title">claude</div>
                                                 </label>
@@ -437,7 +444,12 @@
                                         </li>
                                         <li>
                                             <div class="frm-select-sticker bg-green">
-                                                <input type="radio" name="menu01-stickers" id="menu01-st02" />
+                                                <input
+                                                    type="radio"
+                                                    name="menu01-stickers"
+                                                    id="menu01-st02"
+                                                    data-content="menu01-select02"
+                                                />
                                                 <label for="menu01-st02">
                                                     <div class="lbl-title">vik point</div>
                                                 </label>
@@ -445,7 +457,13 @@
                                         </li>
                                         <li>
                                             <div class="frm-select-sticker bg-red">
-                                                <input type="radio" name="menu01-stickers" id="menu01-st03" />
+                                                <input
+                                                    type="radio"
+                                                    name="menu01-stickers"
+                                                    id="menu01-st03"
+                                                    disabled
+                                                    data-content="menu01-select03"
+                                                />
                                                 <label for="menu01-st03">
                                                     <div class="lbl-title">battle born</div>
                                                 </label>
@@ -453,7 +471,13 @@
                                         </li>
                                         <li>
                                             <div class="frm-select-sticker bg-orange">
-                                                <input type="radio" name="menu01-stickers" id="menu01-st04" />
+                                                <input
+                                                    type="radio"
+                                                    name="menu01-stickers"
+                                                    id="menu01-st04"
+                                                    disabled
+                                                    data-content="menu01-select04"
+                                                />
                                                 <label for="menu01-st04">
                                                     <div class="lbl-title">v l s</div>
                                                 </label>
@@ -463,155 +487,310 @@
                                 </div>
 
                                 <div class="menu-inner-wrap">
-                                    <ul class="menu menu-main">
-                                        <li>
-                                            <div>Комфорт</div>
-                                            <ul class="menu">
-                                                <li>
-                                                    <div class="frm-select-text">
-                                                        <input
-                                                            type="radio"
-                                                            name="menu01-select"
-                                                            id="menu01-text01"
-                                                            data-content="menu01-text01"
-                                                        />
-                                                        <label for="menu01-text01">Элитон</label>
-                                                    </div>
-                                                </li>
-                                                <li>
-                                                    <div class="frm-select-text">
-                                                        <input
-                                                            type="radio"
-                                                            name="menu01-select"
-                                                            id="menu01-text02"
-                                                            data-content="menu01-text02"
-                                                        />
-                                                        <label for="menu01-text02">Чех</label>
-                                                    </div>
-                                                </li>
-                                                <li>
-                                                    <div class="frm-select-text">
-                                                        <input
-                                                            type="radio"
-                                                            name="menu01-select"
-                                                            id="menu01-text03"
-                                                            data-content="menu01-text03"
-                                                        />
-                                                        <label for="menu01-text03">Аташе</label>
-                                                    </div>
-                                                </li>
-                                                <li>
-                                                    <div class="frm-select-text">
-                                                        <input
-                                                            type="radio"
-                                                            name="menu01-select"
-                                                            id="menu01-text04"
-                                                            data-content="menu01-text04"
-                                                        />
-                                                        <label for="menu01-text04">Борнео</label>
-                                                    </div>
-                                                </li>
-                                                <li>
-                                                    <div class="frm-select-text">
-                                                        <input
-                                                            type="radio"
-                                                            name="menu01-select"
-                                                            id="menu01-text05"
-                                                            data-content="menu01-text05"
-                                                        />
-                                                        <label for="menu01-text05">Остин</label>
-                                                    </div>
-                                                </li>
-                                                <li>
-                                                    <div class="frm-select-text">
-                                                        <input
-                                                            type="radio"
-                                                            name="menu01-select"
-                                                            id="menu01-text06"
-                                                            data-content="menu01-text06"
-                                                        />
-                                                        <label for="menu01-text06">Элегант</label>
-                                                    </div>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                        <li>
-                                            <div>Нормал</div>
-                                            <ul class="menu">
-                                                <li>
-                                                    <div class="frm-select-text">
-                                                        <input
-                                                            type="radio"
-                                                            name="menu01-select"
-                                                            id="menu01-text07"
-                                                            data-content="menu01-text07"
-                                                        />
-                                                        <label for="menu01-text07">Люкс</label>
-                                                    </div>
-                                                </li>
-                                                <li>
-                                                    <div class="frm-select-text">
-                                                        <input
-                                                            type="radio"
-                                                            name="menu01-select"
-                                                            id="menu01-text08"
-                                                            data-content="menu01-text08"
-                                                        />
-                                                        <label for="menu01-text08">Монако</label>
-                                                    </div>
-                                                </li>
-                                                <li>
-                                                    <div class="frm-select-text">
-                                                        <input
-                                                            type="radio"
-                                                            name="menu01-select"
-                                                            id="menu01-text09"
-                                                            data-content="menu01-text09"
-                                                        />
-                                                        <label for="menu01-text09">Сопрано</label>
-                                                    </div>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                        <li>
-                                            <div>Слим</div>
-                                            <ul class="menu">
-                                                <li>
-                                                    <div class="frm-select-text">
-                                                        <input
-                                                            type="radio"
-                                                            name="menu01-select"
-                                                            id="menu01-text10"
-                                                            data-content="menu01-text10"
-                                                        />
-                                                        <label for="menu01-text10">Стеллар</label>
-                                                    </div>
-                                                </li>
-                                                <li>
-                                                    <div class="frm-select-text">
-                                                        <input
-                                                            type="radio"
-                                                            name="menu01-select"
-                                                            id="menu01-text11"
-                                                            data-content="menu01-text11"
-                                                        />
-                                                        <label for="menu01-text11">Денди</label>
-                                                    </div>
-                                                </li>
-                                                <li>
-                                                    <div class="frm-select-text">
-                                                        <input
-                                                            type="radio"
-                                                            name="menu01-select"
-                                                            id="menu01-text12"
-                                                            data-content="menu01-text12"
-                                                        />
-                                                        <label for="menu01-text12">Слим</label>
-                                                    </div>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                    </ul>
+                                    <div class="frm-content" data-content="menu01-select01">
+                                        <ul class="menu menu-main">
+                                            <li>
+                                                <div>Комфорт</div>
+                                                <ul class="menu">
+                                                    <li>
+                                                        <div class="frm-select-text">
+                                                            <input
+                                                                type="radio"
+                                                                name="menu01-select01"
+                                                                id="menu01-select01-text01"
+                                                                data-content="menu01-select01-text01"
+                                                            />
+                                                            <label for="menu01-select01-text01">Элитон</label>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="frm-select-text">
+                                                            <input
+                                                                type="radio"
+                                                                name="menu01-select01"
+                                                                id="menu01-select01-text02"
+                                                                data-content="menu01-select01-text02"
+                                                            />
+                                                            <label for="menu01-select01-text02">Чех</label>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="frm-select-text">
+                                                            <input
+                                                                type="radio"
+                                                                name="menu01-select01"
+                                                                id="menu01-select01-text03"
+                                                                data-content="menu01-select01-text03"
+                                                            />
+                                                            <label for="menu01-select01-text03">Аташе</label>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="frm-select-text">
+                                                            <input
+                                                                type="radio"
+                                                                name="menu01-select01"
+                                                                id="menu01-select01-text04"
+                                                                data-content="menu01-select01-text04"
+                                                            />
+                                                            <label for="menu01-select01-text04">Борнео</label>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="frm-select-text">
+                                                            <input
+                                                                type="radio"
+                                                                name="menu01-select01"
+                                                                id="menu01-select01-text05"
+                                                                data-content="menu01-select01-text05"
+                                                            />
+                                                            <label for="menu01-select01-text05">Остин</label>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="frm-select-text">
+                                                            <input
+                                                                type="radio"
+                                                                name="menu01-select01"
+                                                                id="menu01-select01-text06"
+                                                                data-content="menu01-select01-text06"
+                                                            />
+                                                            <label for="menu01-select01-text06">Элегант</label>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                <div>Нормал</div>
+                                                <ul class="menu">
+                                                    <li>
+                                                        <div class="frm-select-text">
+                                                            <input
+                                                                type="radio"
+                                                                name="menu01-select01"
+                                                                id="menu01-select01-text07"
+                                                                data-content="menu01-select01-text07"
+                                                            />
+                                                            <label for="menu01-select01-text07">Люкс</label>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="frm-select-text">
+                                                            <input
+                                                                type="radio"
+                                                                name="menu01-select01"
+                                                                id="menu01-select01-text08"
+                                                                data-content="menu01-select01-text08"
+                                                            />
+                                                            <label for="menu01-select01-text08">Монако</label>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="frm-select-text">
+                                                            <input
+                                                                type="radio"
+                                                                name="menu01-select01"
+                                                                id="menu01-select01-text09"
+                                                                data-content="menu01-select01-text09"
+                                                            />
+                                                            <label for="menu01-select01-text09">Сопрано</label>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                <div>Слим</div>
+                                                <ul class="menu">
+                                                    <li>
+                                                        <div class="frm-select-text">
+                                                            <input
+                                                                type="radio"
+                                                                name="menu01-select01"
+                                                                id="menu01-select01-text10"
+                                                                data-content="menu01-select01-text10"
+                                                            />
+                                                            <label for="menu01-select01-text10">Стеллар</label>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="frm-select-text">
+                                                            <input
+                                                                type="radio"
+                                                                name="menu01-select01"
+                                                                id="menu01-select01-text11"
+                                                                data-content="menu01-select01-text11"
+                                                            />
+                                                            <label for="menu01-select01-text11">Денди</label>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="frm-select-text">
+                                                            <input
+                                                                type="radio"
+                                                                name="menu01-select01"
+                                                                id="menu01-select01-text12"
+                                                                data-content="menu01-select01-text12"
+                                                            />
+                                                            <label for="menu01-select01-text12">Слим</label>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="frm-content" data-content="menu01-select02">
+                                        <ul class="menu menu-main">
+                                            <li>
+                                                <div>Нормал</div>
+                                                <ul class="menu">
+                                                    <li>
+                                                        <div class="frm-select-text">
+                                                            <input
+                                                                type="radio"
+                                                                name="menu01-select02"
+                                                                id="menu01-select02-text07"
+                                                                data-content="menu01-select02-text07"
+                                                            />
+                                                            <label for="menu01-select02-text07">Люкс</label>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="frm-select-text">
+                                                            <input
+                                                                type="radio"
+                                                                name="menu01-select02"
+                                                                id="menu01-select02-text08"
+                                                                data-content="menu01-select02-text08"
+                                                            />
+                                                            <label for="menu01-select02-text08">Монако</label>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="frm-select-text">
+                                                            <input
+                                                                type="radio"
+                                                                name="menu01-select02"
+                                                                id="menu01-select02-text09"
+                                                                data-content="menu01-select02-text09"
+                                                            />
+                                                            <label for="menu01-select02-text09">Сопрано</label>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                <div>Комфорт</div>
+                                                <ul class="menu">
+                                                    <li>
+                                                        <div class="frm-select-text">
+                                                            <input
+                                                                type="radio"
+                                                                name="menu01-select02"
+                                                                id="menu01-select02-text01"
+                                                                data-content="menu01-select02-text01"
+                                                            />
+                                                            <label for="menu01-select02-text01">Элитон</label>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="frm-select-text">
+                                                            <input
+                                                                type="radio"
+                                                                name="menu01-select02"
+                                                                id="menu01-select02-text02"
+                                                                data-content="menu01-select02-text02"
+                                                            />
+                                                            <label for="menu01-select02-text02">Чех</label>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="frm-select-text">
+                                                            <input
+                                                                type="radio"
+                                                                name="menu01-select02"
+                                                                id="menu01-select02-text03"
+                                                                data-content="menu01-select02-text03"
+                                                            />
+                                                            <label for="menu01-select02-text03">Аташе</label>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="frm-select-text">
+                                                            <input
+                                                                type="radio"
+                                                                name="menu01-select02"
+                                                                id="menu01-select02-text04"
+                                                                data-content="menu01-select02-text04"
+                                                            />
+                                                            <label for="menu01-select02-text04">Борнео</label>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="frm-select-text">
+                                                            <input
+                                                                type="radio"
+                                                                name="menu01-select02"
+                                                                id="menu01-select02-text05"
+                                                                data-content="menu01-select02-text05"
+                                                            />
+                                                            <label for="menu01-select02-text05">Остин</label>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="frm-select-text">
+                                                            <input
+                                                                type="radio"
+                                                                name="menu01-select02"
+                                                                id="menu01-select02-text06"
+                                                                data-content="menu01-select02-text06"
+                                                            />
+                                                            <label for="menu01-select02-text06">Элегант</label>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                <div>Слим</div>
+                                                <ul class="menu">
+                                                    <li>
+                                                        <div class="frm-select-text">
+                                                            <input
+                                                                type="radio"
+                                                                name="menu01-select02"
+                                                                id="menu01-select02-text10"
+                                                                data-content="menu01-select02-text10"
+                                                            />
+                                                            <label for="menu01-select02-text10">Стеллар</label>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="frm-select-text">
+                                                            <input
+                                                                type="radio"
+                                                                name="menu01-select02"
+                                                                id="menu01-select02-text11"
+                                                                data-content="menu01-select02-text11"
+                                                            />
+                                                            <label for="menu01-select02-text11">Денди</label>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="frm-select-text">
+                                                            <input
+                                                                type="radio"
+                                                                name="menu01-select02"
+                                                                id="menu01-select02-text12"
+                                                                data-content="menu01-select02-text12"
+                                                            />
+                                                            <label for="menu01-select02-text12">Слим</label>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="frm-content" data-content="menu01-select03">333</div>
+                                    <div class="frm-content" data-content="menu01-select04">444</div>
                                 </div>
 
                                 <div class="filter-inner-wrap">
@@ -864,7 +1043,7 @@
 
                     <!-- action 01 -->
                     <div class="submenu-action-wrap section-mobile-full js-tab-block" data-tab="tabmenu01">
-                        <div class="frm-content" data-content="menu01-text01">
+                        <div class="frm-content" data-content="menu01-select01-text01">
                             <a href="" class="elm-photo photo-cover">
                                 <img src="./img/catalog.jpg" alt="" />
                                 <div class="photo-title-wrap">
@@ -876,7 +1055,7 @@
                                 </div>
                             </a>
                         </div>
-                        <div class="frm-content" data-content="menu01-text02">
+                        <div class="frm-content" data-content="menu01-select01-text02">
                             <a href="" class="elm-photo photo-cover">
                                 <img src="./img/catalog.jpg" alt="" />
                                 <div class="photo-title-wrap">
@@ -888,7 +1067,7 @@
                                 </div>
                             </a>
                         </div>
-                        <div class="frm-content" data-content="menu01-text03">
+                        <div class="frm-content" data-content="menu01-select01-text03">
                             <a href="" class="elm-photo photo-cover">
                                 <img src="./img/catalog.jpg" alt="" />
                                 <div class="photo-title-wrap">
@@ -900,7 +1079,7 @@
                                 </div>
                             </a>
                         </div>
-                        <div class="frm-content" data-content="menu01-text04">
+                        <div class="frm-content" data-content="menu01-select01-text04">
                             <a href="" class="elm-photo photo-cover">
                                 <img src="./img/catalog.jpg" alt="" />
                                 <div class="photo-title-wrap">
@@ -912,7 +1091,7 @@
                                 </div>
                             </a>
                         </div>
-                        <div class="frm-content" data-content="menu01-text05">
+                        <div class="frm-content" data-content="menu01-select01-text05">
                             <a href="" class="elm-photo photo-cover">
                                 <img src="./img/catalog.jpg" alt="" />
                                 <div class="photo-title-wrap">
@@ -924,7 +1103,7 @@
                                 </div>
                             </a>
                         </div>
-                        <div class="frm-content" data-content="menu01-text06">
+                        <div class="frm-content" data-content="menu01-select01-text06">
                             <a href="" class="elm-photo photo-cover">
                                 <img src="./img/catalog.jpg" alt="" />
                                 <div class="photo-title-wrap">
@@ -936,7 +1115,7 @@
                                 </div>
                             </a>
                         </div>
-                        <div class="frm-content" data-content="menu01-text07">
+                        <div class="frm-content" data-content="menu01-select01-text07">
                             <a href="" class="elm-photo photo-cover">
                                 <img src="./img/catalog.jpg" alt="" />
                                 <div class="photo-title-wrap">
@@ -948,7 +1127,7 @@
                                 </div>
                             </a>
                         </div>
-                        <div class="frm-content" data-content="menu01-text08">
+                        <div class="frm-content" data-content="menu01-select01-text08">
                             <a href="" class="elm-photo photo-cover">
                                 <img src="./img/catalog.jpg" alt="" />
                                 <div class="photo-title-wrap">
@@ -960,7 +1139,7 @@
                                 </div>
                             </a>
                         </div>
-                        <div class="frm-content" data-content="menu01-text09">
+                        <div class="frm-content" data-content="menu01-select01-text09">
                             <a href="" class="elm-photo photo-cover">
                                 <img src="./img/catalog.jpg" alt="" />
                                 <div class="photo-title-wrap">
@@ -972,7 +1151,7 @@
                                 </div>
                             </a>
                         </div>
-                        <div class="frm-content" data-content="menu01-text10">
+                        <div class="frm-content" data-content="menu01-select01-text10">
                             <a href="" class="elm-photo photo-cover">
                                 <img src="./img/catalog.jpg" alt="" />
                                 <div class="photo-title-wrap">
@@ -984,7 +1163,7 @@
                                 </div>
                             </a>
                         </div>
-                        <div class="frm-content" data-content="menu01-text11">
+                        <div class="frm-content" data-content="menu01-select01-text11">
                             <a href="" class="elm-photo photo-cover">
                                 <img src="./img/catalog.jpg" alt="" />
                                 <div class="photo-title-wrap">
@@ -996,7 +1175,151 @@
                                 </div>
                             </a>
                         </div>
-                        <div class="frm-content" data-content="menu01-text12">
+                        <div class="frm-content" data-content="menu01-select01-text12">
+                            <a href="" class="elm-photo photo-cover">
+                                <img src="./img/catalog.jpg" alt="" />
+                                <div class="photo-title-wrap">
+                                    <div class="photo-title section-title">Презентация всех моделей 12</div>
+                                    <div class="photo-subtitle section-title">Брюки Casual</div>
+                                    <div class="btn button-border button-white">
+                                        <div class="button-title">перейти</div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="frm-content" data-content="menu01-select02-text01">
+                            <a href="" class="elm-photo photo-cover">
+                                <img src="./img/catalog.jpg" alt="" />
+                                <div class="photo-title-wrap">
+                                    <div class="photo-title section-title">Презентация всех моделей 01</div>
+                                    <div class="photo-subtitle section-title">Брюки Casual</div>
+                                    <div class="btn button-border button-white">
+                                        <div class="button-title">перейти</div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="frm-content" data-content="menu01-select02-text02">
+                            <a href="" class="elm-photo photo-cover">
+                                <img src="./img/catalog.jpg" alt="" />
+                                <div class="photo-title-wrap">
+                                    <div class="photo-title section-title">Презентация всех моделей 02</div>
+                                    <div class="photo-subtitle section-title">Брюки Casual</div>
+                                    <div class="btn button-border button-white">
+                                        <div class="button-title">перейти</div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="frm-content" data-content="menu01-select02-text03">
+                            <a href="" class="elm-photo photo-cover">
+                                <img src="./img/catalog.jpg" alt="" />
+                                <div class="photo-title-wrap">
+                                    <div class="photo-title section-title">Презентация всех моделей 03</div>
+                                    <div class="photo-subtitle section-title">Брюки Casual</div>
+                                    <div class="btn button-border button-white">
+                                        <div class="button-title">перейти</div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="frm-content" data-content="menu01-select02-text04">
+                            <a href="" class="elm-photo photo-cover">
+                                <img src="./img/catalog.jpg" alt="" />
+                                <div class="photo-title-wrap">
+                                    <div class="photo-title section-title">Презентация всех моделей 04</div>
+                                    <div class="photo-subtitle section-title">Брюки Casual</div>
+                                    <div class="btn button-border button-white">
+                                        <div class="button-title">перейти</div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="frm-content" data-content="menu01-select02-text05">
+                            <a href="" class="elm-photo photo-cover">
+                                <img src="./img/catalog.jpg" alt="" />
+                                <div class="photo-title-wrap">
+                                    <div class="photo-title section-title">Презентация всех моделей 05</div>
+                                    <div class="photo-subtitle section-title">Брюки Casual</div>
+                                    <div class="btn button-border button-white">
+                                        <div class="button-title">перейти</div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="frm-content" data-content="menu01-select02-text06">
+                            <a href="" class="elm-photo photo-cover">
+                                <img src="./img/catalog.jpg" alt="" />
+                                <div class="photo-title-wrap">
+                                    <div class="photo-title section-title">Презентация всех моделей 06</div>
+                                    <div class="photo-subtitle section-title">Брюки Casual</div>
+                                    <div class="btn button-border button-white">
+                                        <div class="button-title">перейти</div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="frm-content" data-content="menu01-select02-text07">
+                            <a href="" class="elm-photo photo-cover">
+                                <img src="./img/catalog.jpg" alt="" />
+                                <div class="photo-title-wrap">
+                                    <div class="photo-title section-title">Презентация всех моделей 07</div>
+                                    <div class="photo-subtitle section-title">Брюки Casual</div>
+                                    <div class="btn button-border button-white">
+                                        <div class="button-title">перейти</div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="frm-content" data-content="menu01-select02-text08">
+                            <a href="" class="elm-photo photo-cover">
+                                <img src="./img/catalog.jpg" alt="" />
+                                <div class="photo-title-wrap">
+                                    <div class="photo-title section-title">Презентация всех моделей 08</div>
+                                    <div class="photo-subtitle section-title">Брюки Casual</div>
+                                    <div class="btn button-border button-white">
+                                        <div class="button-title">перейти</div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="frm-content" data-content="menu01-select02-text09">
+                            <a href="" class="elm-photo photo-cover">
+                                <img src="./img/catalog.jpg" alt="" />
+                                <div class="photo-title-wrap">
+                                    <div class="photo-title section-title">Презентация всех моделей 09</div>
+                                    <div class="photo-subtitle section-title">Брюки Casual</div>
+                                    <div class="btn button-border button-white">
+                                        <div class="button-title">перейти</div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="frm-content" data-content="menu01-select02-text10">
+                            <a href="" class="elm-photo photo-cover">
+                                <img src="./img/catalog.jpg" alt="" />
+                                <div class="photo-title-wrap">
+                                    <div class="photo-title section-title">Презентация всех моделей 10</div>
+                                    <div class="photo-subtitle section-title">Брюки Casual</div>
+                                    <div class="btn button-border button-white">
+                                        <div class="button-title">перейти</div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="frm-content" data-content="menu01-select02-text11">
+                            <a href="" class="elm-photo photo-cover">
+                                <img src="./img/catalog.jpg" alt="" />
+                                <div class="photo-title-wrap">
+                                    <div class="photo-title section-title">Презентация всех моделей 11</div>
+                                    <div class="photo-subtitle section-title">Брюки Casual</div>
+                                    <div class="btn button-border button-white">
+                                        <div class="button-title">перейти</div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="frm-content" data-content="menu01-select02-text12">
                             <a href="" class="elm-photo photo-cover">
                                 <img src="./img/catalog.jpg" alt="" />
                                 <div class="photo-title-wrap">

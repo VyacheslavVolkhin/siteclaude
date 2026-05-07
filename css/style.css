@@ -19,6 +19,10 @@
   --clr-orange: #d67545;
   --clr-violet: #767c9b;
   --clr-red: #990202;
+  --clr-green-light: #bad645;
+  --clr-orange-light: #d67545;
+  --clr-violet-light: #767c9b;
+  --clr-red-light: #990202;
   --fsize: 14px;
   --lhsize: 1.54286;
   --mbsize: 1.54286em;
@@ -50,10 +54,10 @@
   display: none;
 }
 .fmain {
-  font-family: "Outfit", sans-serif;
+  font-family: "Inter", sans-serif;
 }
 .fmain * {
-  font-family: "Outfit", sans-serif;
+  font-family: "Inter", sans-serif;
 }
 .ftitle {
   font-family: "Tenor Sans", sans-serif;
@@ -1072,6 +1076,11 @@ html.with-fancybox body.hide-scrollbar {
     display: flex;
     gap: 0;
     padding: 0 10px;
+    bottom: env(safe-area-inset-bottom);
+    padding-bottom: env(safe-area-inset-bottom);
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    will-change: transform;
   }
   .header .search-content-block {
     display: none;
@@ -1877,6 +1886,10 @@ html.with-fancybox body.hide-scrollbar {
   object-fit: initial;
   z-index: 8;
 }
+.elm-photo.photo-play.no-play-bg img {
+  -webkit-filter: none !important;
+  filter: none !important;
+}
 .elm-photo.photo-play:hover:before {
   -webkit-transform: translate(-50%, -50%) scale(2);
   transform: translate(-50%, -50%) scale(2);
@@ -2088,6 +2101,11 @@ html.with-fancybox body.hide-scrollbar {
   text-transform: uppercase;
   color: var(--clr-base-white);
   z-index: 2;
+}
+.elm-sticker[disabled],
+.elm-sticker.disabled {
+  pointer-events: none;
+  opacity: 0.44;
 }
 @media (min-width: 1024px) {
   .elm-tile-button {
@@ -2419,10 +2437,10 @@ html.with-fancybox body.hide-scrollbar {
   font-weight: 600;
   line-height: 1.06333;
   color: var(--clr-base-title);
-  font-family: "Outfit", sans-serif;
+  font-family: "Inter", sans-serif;
 }
 .item-tile-catalog .tile-title * {
-  font-family: "Outfit", sans-serif;
+  font-family: "Inter", sans-serif;
 }
 .item-tile-catalog .tile-title a:not(:hover) {
   color: inherit;
@@ -2478,10 +2496,10 @@ html.with-fancybox body.hide-scrollbar {
 .item-tile-article .tile-title {
   margin: 0;
   font-size: 1em;
-  font-family: "Outfit", sans-serif;
+  font-family: "Inter", sans-serif;
 }
 .item-tile-article .tile-title * {
-  font-family: "Outfit", sans-serif;
+  font-family: "Inter", sans-serif;
 }
 .item-tile-article .elm-photo {
   aspect-ratio: 320/430;
@@ -3052,6 +3070,9 @@ html.with-fancybox body.hide-scrollbar {
   line-height: 18px;
   font-size: 14px;
 }
+.info-card-box .elm-sticker {
+  min-width: 155px;
+}
 .table-content-box .table-inner-wrap {
   overflow-x: auto;
   overflow-y: hidden;
@@ -3373,10 +3394,10 @@ html.with-fancybox body.hide-scrollbar {
   color: var(--clr-base-title);
   padding: 13px;
   background: var(--clr-bg-light);
-  font-family: "Outfit", sans-serif;
+  font-family: "Inter", sans-serif;
 }
 .tiles-cart-box .section-title * {
-  font-family: "Outfit", sans-serif;
+  font-family: "Inter", sans-serif;
 }
 .tiles-thumbs-slider-box {
   position: relative;
@@ -3567,11 +3588,6 @@ html.with-fancybox body.hide-scrollbar {
 .catalog-menu-box .menu-inner-wrap .menu-main > li > div,
 .catalog-menu-box .menu-inner-wrap .menu-main > li > span {
   color: #828282;
-}
-.catalog-menu-box .menu-inner-wrap .menu-main > li > a:hover,
-.catalog-menu-box .menu-inner-wrap .menu-main > li > div:hover,
-.catalog-menu-box .menu-inner-wrap .menu-main > li > span:hover {
-  color: var(--clr-base);
 }
 .catalog-menu-box .submenu-action-wrap {
   padding-top: 60px;
@@ -3786,6 +3802,17 @@ html.with-fancybox body.hide-scrollbar {
 .lead-slider-box .slider-pagination.type-lines .swiper-pagination-bullet {
   max-width: 54px;
 }
+.lead-slider-box video {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+  object-fit: cover;
+}
 .tiles-pluses-box {
   margin-bottom: var(--sectionMargin);
   position: relative;
@@ -3887,10 +3914,6 @@ html.with-fancybox body.hide-scrollbar {
 }
 .article-new-box .tiles-box {
   margin: 0;
-}
-.article-new-box .tiles-box .sl-wrap > .elm-photo,
-.article-new-box .tiles-box .item-wrap > .elm-photo {
-  aspect-ratio: 320/430;
 }
 .map-box {
   margin-bottom: var(--sectionMargin);
@@ -4398,6 +4421,9 @@ html.with-fancybox body.hide-scrollbar {
   }
 }
 @media (max-width: 767px) {
+  .info-card-box .info-content-wrap {
+    margin-bottom: 10px;
+  }
   .info-card-box .photos-inner-wrap .form-inner-wrap {
     margin-top: 0;
   }
@@ -4508,7 +4534,8 @@ html.with-fancybox body.hide-scrollbar {
     width: auto;
   }
   .tags-box .elm-sticker {
-    padding: 0 4rem;
+    padding: 0 15px;
+    min-width: 18.9rem;
   }
   .tiles-box:has(.item-tile-logo) .item-wrap,
   .tiles-box:has(.item-tile-logo) .sl-wrap {
@@ -4807,6 +4834,9 @@ html.with-fancybox body.hide-scrollbar {
     height: 200px;
     font-size: 18px;
   }
+  .info-card-box .elm-sticker {
+    min-width: 18.9rem;
+  }
   .catalog-menu-box {
     margin-bottom: 10.2rem;
     -webkit-box-orient: horizontal;
@@ -4916,6 +4946,7 @@ html.with-fancybox body.hide-scrollbar {
   .catalog-menu-box .submenu-action-wrap {
     width: 51.6rem;
     min-width: 51.6rem;
+    max-width: 51.6rem;
     -ms-flex-negative: 0;
     flex-shrink: 0;
     display: none;
@@ -5013,10 +5044,6 @@ html.with-fancybox body.hide-scrollbar {
   .tiles-box .sl-wrap,
   .tiles-box .item-wrap {
     width: 33.33%;
-  }
-  .tiles-box .sl-wrap > .elm-photo,
-  .tiles-box .item-wrap > .elm-photo {
-    aspect-ratio: 520/600;
   }
   .photo-box .button-inner-wrap .btn {
     height: 9rem;
@@ -5242,6 +5269,9 @@ html.with-fancybox body.hide-scrollbar {
   }
 }
 @media (min-width: 1024px) and (max-width: 1199px) {
+  .catalog-menu-box:has(.frm-select-text input:checked) .submenu-action-wrap.active {
+    display: none;
+  }
   .catalog-menu-box .submenu-action-wrap {
     display: none;
   }
@@ -5260,9 +5290,19 @@ html.with-fancybox body.hide-scrollbar {
     font-size: 18px;
   }
 }
+@media (min-width: 1200px) and (max-width: 1599px) {
+  .catalog-menu-box .tags-inner-wrap .menu li {
+    width: 50%;
+  }
+}
 @media (min-width: 1200px) and (max-width: 1399px) {
   .catalog-menu-box .submenu-action-wrap {
     width: 40rem;
+    min-width: 40rem;
+    max-width: 40rem;
+  }
+  .catalog-menu-box .submenu-action-wrap.wrap-main {
+    max-width: 100%;
   }
   .catalog-menu-box .menu-content-outer-wrap {
     max-width: calc(100% - 38.6rem - 40rem);
@@ -6622,6 +6662,10 @@ select.form-input:required:invalid {
   text-transform: uppercase;
   text-align: center;
   color: var(--clr-base-white);
+}
+.frm-select-sticker:has([disabled]) {
+  pointer-events: none;
+  opacity: 0.44;
 }
 .frm-select-sticker input:checked ~ label:before,
 .frm-select-sticker input:checked ~ label:after {
@@ -8218,51 +8262,6 @@ input.form-clear-autofill::-webkit-contacts-auto-fill-button {
   unicode-range:
     U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC,
     U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-@font-face {
-  font-family: "Outfit";
-  src:
-    url("../fonts/Outfit-Light.woff2") format("woff2"),
-    url("../fonts/Outfit-Light.woff") format("woff");
-  font-weight: 300;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: "Outfit";
-  src:
-    url("../fonts/Outfit-Regular.woff2") format("woff2"),
-    url("../fonts/Outfit-Regular.woff") format("woff");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: "Outfit";
-  src:
-    url("../fonts/Outfit-Medium.woff2") format("woff2"),
-    url("../fonts/Outfit-Medium.woff") format("woff");
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: "Outfit";
-  src:
-    url("../fonts/Outfit-SemiBold.woff2") format("woff2"),
-    url("../fonts/Outfit-SemiBold.woff") format("woff");
-  font-weight: 600;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: "Outfit";
-  src:
-    url("../fonts/Outfit-Bold.woff2") format("woff2"),
-    url("../fonts/Outfit-Bold.woff") format("woff");
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
 }
 @font-face {
   font-family: "Tenor Sans";

@@ -84,7 +84,7 @@ video {
   border: 0;
   font-size: 100%;
   vertical-align: baseline;
-  font-family: 'Outfit', 'Open Sans', sans-serif;
+  font-family: 'Inter', sans-serif;
 }
 /* HTML5 display-role reset for older browsers */
 body {
@@ -162,7 +162,7 @@ button,
     text-overflow: ellipsis;
     white-space: nowrap;
     text-align: center;
-    font-family: 'Outfit', 'Open Sans', sans-serif;
+    font-family: 'Inter', sans-serif;
     -webkit-transition: all ease 0.3s;
     transition: all ease 0.3s;
     text-decoration: none;
@@ -188,7 +188,7 @@ textarea {
   display: block;
   width: 100%;
   outline: none;
-  font-family: 'Outfit', 'Open Sans', sans-serif;
+  font-family: 'Inter', sans-serif;
   -webkit-appearance: none;
 }
 select::-ms-clear,
