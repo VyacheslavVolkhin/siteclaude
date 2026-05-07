@@ -121,6 +121,37 @@ document.addEventListener("DOMContentLoaded", function() {
 				.forEach((menuInput) => {
 					menuInput.checked = false;
 				});
+			catalogBox
+				.querySelectorAll('.submenu-action-wrap .frm-content.active')
+				.forEach((menuInput) => {
+					menuInput.classList.remove('active')
+				});
+		});
+	});
+	document.querySelectorAll(".catalog-menu-box").forEach((catalogBox) => {
+		const clearHoverState = () => {
+			catalogBox
+				.querySelectorAll(".submenu-action-wrap .frm-content.active-hover")
+				.forEach((content) => content.classList.remove("active-hover"));
+		};
+	
+		catalogBox.querySelectorAll(".frm-select-text").forEach((selectText) => {
+			const input = selectText.querySelector("input[data-content]");
+			if (!input) return;
+	
+			selectText.addEventListener("mouseenter", () => {
+				const dataContent = input.getAttribute("data-content");
+				if (!dataContent) return;
+	
+				clearHoverState();
+				catalogBox
+					.querySelectorAll(`.frm-content[data-content="${dataContent}"]`)
+					.forEach((content) => content.classList.add("active-hover"));
+			});
+	
+			selectText.addEventListener("mouseleave", () => {
+				clearHoverState();
+			});
 		});
 	});
 

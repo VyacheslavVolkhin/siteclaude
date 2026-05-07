@@ -1074,6 +1074,8 @@ html.with-fancybox body.hide-scrollbar {
     display: flex;
     gap: 0;
     padding: 0 10px 10px 10px;
+    -webkit-transition: bottom ease 0.2s;
+    transition: bottom ease 0.2s;
   }
   .header .search-content-block {
     display: none;
@@ -4848,6 +4850,18 @@ html.with-fancybox body.hide-scrollbar {
     min-height: 68.3rem;
     background: var(--clr-bg-light);
   }
+  .catalog-menu-box .submenu-action-wrap .frm-content {
+    z-index: 3;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+  .catalog-menu-box .submenu-action-wrap .frm-content.active-hover {
+    display: block;
+    z-index: 20;
+  }
   .catalog-menu-box .main-menu-inner-wrap:not(:has(.active)) ~ .submenu-action-wrap.wrap-main {
     -webkit-box-flex: 1;
     -ms-flex: 1;
@@ -4857,6 +4871,12 @@ html.with-fancybox body.hide-scrollbar {
     display: none;
   }
   .catalog-menu-box .main-menu-inner-wrap:has(.active) ~ .menu-content-outer-wrap {
+    display: block;
+  }
+  .catalog-menu-box .main-menu-inner-wrap:has(.active) ~ .submenu-action-wrap.wrap-main {
+    display: none;
+  }
+  .catalog-menu-box .main-menu-inner-wrap:has(.active) ~ .submenu-action-wrap.active {
     display: block;
   }
   .catalog-menu-box:has(.menu-inner-wrap) .filter-inner-wrap {
