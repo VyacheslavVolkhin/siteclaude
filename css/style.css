@@ -4862,6 +4862,9 @@ html.with-fancybox body.hide-scrollbar {
     display: block;
     z-index: 20;
   }
+  .catalog-menu-box .submenu-action-wrap .frm-content.active-hover .photo-title-wrap {
+    display: none;
+  }
   .catalog-menu-box .main-menu-inner-wrap:not(:has(.active)) ~ .submenu-action-wrap.wrap-main {
     -webkit-box-flex: 1;
     -ms-flex: 1;
