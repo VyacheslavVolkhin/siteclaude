@@ -3068,12 +3068,14 @@ html.with-fancybox body.hide-scrollbar {
 .info-card-box .elm-sticker {
   min-width: 155px;
 }
+.table-content-box {
+  position: relative;
+}
 .table-content-box .table-inner-wrap {
   overflow-x: auto;
   overflow-y: hidden;
   padding-bottom: 10px;
   position: relative;
-  border-left: 1px solid #a9a9a9;
 }
 .table-content-box .table-inner-wrap::-webkit-scrollbar {
   height: 4px;
@@ -3115,15 +3117,12 @@ html.with-fancybox body.hide-scrollbar {
   width: auto;
   min-width: 100%;
 }
-.table-content-box table th,
-.table-content-box table td {
-  border-left: none;
-}
 .table-content-box table th:first-child,
 .table-content-box table td:first-child {
   left: 0;
   z-index: 20;
   position: sticky;
+  border-left: 1px solid #a9a9a9;
 }
 .table-content-box table th:first-child:before,
 .table-content-box table td:first-child:before {
@@ -3164,6 +3163,7 @@ html.with-fancybox body.hide-scrollbar {
   position: relative;
   color: var(--clr-base);
   border: 1px solid #a9a9a9;
+  border-left: none;
   height: 40px;
   padding: 5px;
 }
