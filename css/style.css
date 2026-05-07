@@ -4847,6 +4847,11 @@ html.with-fancybox body.hide-scrollbar {
     min-height: 68.3rem;
     background: var(--clr-bg-light);
   }
+  .catalog-menu-box .main-menu-inner-wrap:not(:has(.active)) ~ .submenu-action-wrap.wrap-main {
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+  }
   .catalog-menu-box:has(.main-menu-inner-wrap) .menu-content-outer-wrap {
     display: none;
   }
@@ -4946,15 +4951,11 @@ html.with-fancybox body.hide-scrollbar {
   .catalog-menu-box .submenu-action-wrap {
     width: 51.6rem;
     min-width: 51.6rem;
-    max-width: 51.6rem;
     -ms-flex-negative: 0;
     flex-shrink: 0;
     display: none;
   }
   .catalog-menu-box .submenu-action-wrap.wrap-main {
-    -webkit-box-flex: 1;
-    -ms-flex: 1;
-    flex: 1;
     max-width: 100%;
     display: block;
   }
@@ -5299,7 +5300,6 @@ html.with-fancybox body.hide-scrollbar {
   .catalog-menu-box .submenu-action-wrap {
     width: 40rem;
     min-width: 40rem;
-    max-width: 40rem;
   }
   .catalog-menu-box .submenu-action-wrap.wrap-main {
     max-width: 100%;
@@ -8263,6 +8263,57 @@ input.form-clear-autofill::-webkit-contacts-auto-fill-button {
     U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC,
     U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
+/*
+@font-face {
+  font-family: 'Outfit';
+  src:
+    url('../fonts/Outfit-Light.woff2') format('woff2'),
+    url('../fonts/Outfit-Light.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Outfit';
+  src:
+    url('../fonts/Outfit-Regular.woff2') format('woff2'),
+    url('../fonts/Outfit-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Outfit';
+  src:
+    url('../fonts/Outfit-Medium.woff2') format('woff2'),
+    url('../fonts/Outfit-Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Outfit';
+  src:
+    url('../fonts/Outfit-SemiBold.woff2') format('woff2'),
+    url('../fonts/Outfit-SemiBold.woff') format('woff');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Outfit';
+  src:
+    url('../fonts/Outfit-Bold.woff2') format('woff2'),
+    url('../fonts/Outfit-Bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+  */
 @font-face {
   font-family: "Tenor Sans";
   src:
