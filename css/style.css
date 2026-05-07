@@ -1078,9 +1078,6 @@ html.with-fancybox body.hide-scrollbar {
     padding: 0 10px;
     bottom: env(safe-area-inset-bottom);
     padding-bottom: env(safe-area-inset-bottom);
-    -webkit-transform: translateZ(0);
-    transform: translateZ(0);
-    will-change: transform;
   }
   .header .search-content-block {
     display: none;
@@ -3125,7 +3122,6 @@ html.with-fancybox body.hide-scrollbar {
   left: 0;
   z-index: 20;
   position: sticky;
-  border-left: none;
 }
 .table-content-box table th:first-child:before,
 .table-content-box table td:first-child:before {

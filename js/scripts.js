@@ -9,6 +9,28 @@ document.addEventListener("DOMContentLoaded", function() {
 		//settings
 	});
 
+	//fix bottom mobile panel scroll
+	(function () {
+		const root = document.documentElement;
+	  
+		function updateBottomOffset() {
+		  const vv = window.visualViewport;
+		  if (!vv) {
+			root.style.setProperty('--vv-bottom-offset', '0px');
+			return;
+		  }
+	  
+		  // Компенсация изменения видимой области при скрытии/показе browser UI
+		  const offset = Math.max(0, window.innerHeight - vv.height - vv.offsetTop);
+		  root.style.setProperty('--vv-bottom-offset', `${offset}px`);
+		}
+	  
+		updateBottomOffset();
+		window.addEventListener('resize', updateBottomOffset, { passive: true });
+		window.addEventListener('orientationchange', updateBottomOffset, { passive: true });
+		window.visualViewport?.addEventListener('resize', updateBottomOffset, { passive: true });
+		window.visualViewport?.addEventListener('scroll', updateBottomOffset, { passive: true });
+	  })();
 
 
 	//catalog menu header toggle
@@ -125,7 +147,7 @@ document.addEventListener("DOMContentLoaded", function() {
 	});
 
 
-	
+
 	
 
 
