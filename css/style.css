@@ -1062,7 +1062,7 @@ html.with-fancybox body.hide-scrollbar {
   }
   .header .actions-inner-wrap {
     position: fixed;
-    bottom: 0.5px;
+    bottom: -10px;
     left: 0;
     right: 0;
     z-index: 100;
@@ -1072,7 +1072,7 @@ html.with-fancybox body.hide-scrollbar {
     display: -ms-flexbox;
     display: flex;
     gap: 0;
-    padding: 0 10px;
+    padding: 0 10px 10px 10px;
   }
   .header .search-content-block {
     display: none;
