@@ -2144,6 +2144,7 @@ html.with-fancybox body.hide-scrollbar {
   right: 0;
   padding: 10px;
   z-index: 6;
+  pointer-events: none;
 }
 .item-tile-cart .tile-sticker-wrap {
   position: absolute;
@@ -2157,7 +2158,6 @@ html.with-fancybox body.hide-scrollbar {
 }
 .item-tile-cart .elm-tile-button {
   z-index: 8;
-  pointer-events: none;
   border-radius: 7px;
   width: 40px;
   height: 40px;
@@ -6864,6 +6864,12 @@ select.form-input:required:invalid {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+body .fancybox__container.has-vertical-thumbs {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
 }
 @media (min-width: 768px) {
   .frm-header-search {

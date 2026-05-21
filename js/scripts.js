@@ -1,4 +1,11 @@
 
+
+
+
+
+
+
+
 document.addEventListener("DOMContentLoaded", function() {
 	
 	//image zoom init
@@ -6,11 +13,26 @@ document.addEventListener("DOMContentLoaded", function() {
 
 	//fancybox
 	Fancybox.bind("[data-fancybox]", {
-		thumbs : {
-			autoStart : true,  // Show thumbs on start
-			axis      : 'y'    // Horizontal layout (required for this CSS hack)
-		  }
+		Carousel: {
+			Thumbs: {
+			  type: "classic",
+			  Carousel: {
+				center: (ref) => {
+				  return (
+					!ref.isVertical() || ref.getTotalSlideDim() > ref.getViewportDim()
+				  );
+				},
+				vertical: false,
+				breakpoints: {
+				  "(min-width: 1024px)": {
+					vertical: true,
+				  },
+				},
+			  },
+			},
+		  },
 	});
+
 
 
 
