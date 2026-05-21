@@ -6,7 +6,10 @@ document.addEventListener("DOMContentLoaded", function() {
 
 	//fancybox
 	Fancybox.bind("[data-fancybox]", {
-		//settings
+		thumbs : {
+			autoStart : true,  // Show thumbs on start
+			axis      : 'y'    // Horizontal layout (required for this CSS hack)
+		  }
 	});
 
 
