@@ -3593,6 +3593,9 @@ html.with-fancybox body.hide-scrollbar {
   width: 100%;
   min-width: 150px;
 }
+.filter-box .frm-select-sticker label:after {
+  border-color: var(--clr-bg-white);
+}
 .catalog-menu-box {
   margin-bottom: 60px;
   display: -webkit-box;
