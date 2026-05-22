@@ -460,38 +460,78 @@ document.addEventListener("DOMContentLoaded", function() {
 	let popupsList = document.querySelectorAll('.popup-outer-box');
 	let popupTimer = null;
 
+	// Функция для добавления таймера в кнопку закрытия
+	function initPopupTimer(popupElement, timerSeconds) {
+		const closeBtn = popupElement.querySelector('.js-popup-close');
+		if (!closeBtn) return;
+		
+		const originalBtnHtml = closeBtn.innerHTML;
+		
+		const timerSpan = document.createElement('span');
+		timerSpan.className = 'button-timer';
+		closeBtn.appendChild(timerSpan);
+		
+		let remainingSeconds = timerSeconds;
+		
+		function updateTimer() {
+			if (remainingSeconds > 0) {
+				timerSpan.textContent = `Закрыть через ${remainingSeconds} сек`;
+				remainingSeconds--;
+				popupTimerInterval = setTimeout(updateTimer, 1000);
+			} else {
+				document.body.classList.remove("popup-open");
+				popupElement.classList.remove("active");
+				
+				closeBtn.innerHTML = originalBtnHtml;
+				clearTimeout(popupTimerInterval);
+			}
+		}
+		
+		let popupTimerInterval;
+		updateTimer();
+		
+		closeBtn.addEventListener('click', function() {
+			if (popupTimerInterval) {
+				clearTimeout(popupTimerInterval);
+			}
+			closeBtn.innerHTML = originalBtnHtml;
+		});
+	}
+
 	document.querySelectorAll(".js-popup-open").forEach(function (element) {
 		element.addEventListener("click", function (e) {
 			document.querySelector(".popup-outer-box")?.classList.remove("active");
 			document.body.classList.add("popup-open");
+			
 			if (popupTimer) {
-			clearTimeout(popupTimer);
-			popupTimer = null;
+				clearTimeout(popupTimer);
+				popupTimer = null;
 			}
 			
 			for (let i = 0; i < popupsList.length; i++) {
-			popupsList[i].classList.remove("active");
+				popupsList[i].classList.remove("active");
 			}
-
+			
 			popupCurrent = this.getAttribute("data-popup");
 			const popupElement = document.querySelector(`.popup-outer-box[id="${popupCurrent}"]`);
 			popupElement.classList.add("active");
-
-			const timerValue = this.getAttribute("data-popup-timer");
+			
+			const timerValue = popupElement.getAttribute("data-timer");
 			if (timerValue) {
-			const timerMs = parseInt(timerValue);
-			if (!isNaN(timerMs) && timerMs > 0) {
-				popupTimer = setTimeout(function() {
-				document.body.classList.remove("popup-open");
-				document.body.classList.remove("popup-open-scroll");
-				popupElement.classList.remove("active");
-				popupTimer = null;
-				}, timerMs);
+				const timerMs = parseInt(timerValue);
+				if (!isNaN(timerMs) && timerMs > 0) {
+					initPopupTimer(popupElement, timerMs);
+					
+					popupTimer = setTimeout(function() {
+						document.body.classList.remove("popup-open");
+						document.body.classList.remove("popup-open-scroll");
+						popupElement.classList.remove("active");
+						popupTimer = null;
+					}, timerMs * 1000);
+				}
 			}
-			}
-
+			
 			e.preventDefault();
-			//e.stopPropagation();
 			return false;
 		});
 	});
