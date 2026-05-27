@@ -9,7 +9,7 @@
 document.addEventListener("DOMContentLoaded", function() {
 	
 	//image zoom init
-	initDriftZoom();
+	//initDriftZoom();
 
 	//fancybox
 	Fancybox.bind("[data-fancybox]", {
