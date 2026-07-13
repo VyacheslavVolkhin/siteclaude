@@ -9466,6 +9466,9 @@ body.popup-open:has(.popup-cookie.active) {
 .elm-sticker.bg-green-dark {
   background-color: #87c20e;
 }
+.elm-sticker.bg-red-dark {
+  background-color: #e33100;
+}
 @media (min-width: 1024px) {
   .elm-sticker.type-sticker {
     height: 30px;
@@ -9474,3 +9477,88 @@ body.popup-open:has(.popup-cookie.active) {
   }
 }
 /* end other styles fix */
+/*  item catalog add sticker */
+.item-tile-catalog:has(.tile-bottom-wrap) .tile-info-wrap {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+.item-tile-catalog:has(.tile-bottom-wrap) .tile-main-wrap {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+.item-tile-catalog:has(.tile-bottom-wrap) .tile-main-wrap .tile-sticker-wrap {
+  position: static;
+  top: auto;
+  bottom: auto;
+  left: auto;
+  right: auto;
+  margin: 0;
+  padding: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  width: auto;
+  -webkit-box-ordinal-group: 3;
+  -ms-flex-order: 2;
+  order: 2;
+}
+.item-tile-catalog:has(.tile-bottom-wrap) .tile-main-wrap .tile-sticker-wrap .elm-sticker {
+  height: 26px;
+  line-height: 26px;
+  border-radius: 13px;
+  padding: 0 10px;
+  font-size: 12px;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: normal;
+  min-width: 0;
+}
+.item-tile-catalog:has(.tile-bottom-wrap) .tile-title-wrap {
+  -webkit-box-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  width: auto;
+  -webkit-box-ordinal-group: 2;
+  -ms-flex-order: 1;
+  order: 1;
+}
+.item-tile-catalog .tile-bottom-wrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+}
+.item-tile-catalog .tile-bottom-wrap .tile-price-wrap {
+  width: auto;
+  -webkit-box-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+}
+.item-tile-catalog .tile-bottom-wrap .tile-actions-wrap {
+  width: auto;
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+}
+@media (min-width: 1024px) {
+  .item-tile-catalog:has(.tile-bottom-wrap) {
+    gap: 18px;
+  }
+  .item-tile-catalog:has(.tile-bottom-wrap) .tile-main-wrap .tile-sticker-wrap .elm-sticker {
+    font-size: 14px;
+    padding: 0 12px;
+  }
+}
+/* end item catalog add sticker */
