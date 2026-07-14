@@ -9334,6 +9334,29 @@ body.popup-open:has(.popup-cookie.active) {
 }
 /* end 1024 - 1599 fix */
 /* brand position fixed */
+.info-card-box .photos-inner-wrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+.info-card-box .photos-inner-wrap .sticker-inner-wrap {
+  position: relative;
+  top: auto;
+  bottom: auto;
+  left: auto;
+  right: auto;
+  -webkit-box-ordinal-group: 0;
+  -ms-flex-order: -1;
+  order: -1;
+}
+.info-card-box .photos-inner-wrap .photos-content-wrap {
+  width: 100%;
+  position: relative;
+}
 .info-card-box .info-inner-wrap .sticker-inner-wrap {
   position: relative;
   top: auto;
@@ -9555,6 +9578,9 @@ body.popup-open:has(.popup-cookie.active) {
 @media (min-width: 1024px) {
   .item-tile-catalog:has(.tile-bottom-wrap) {
     gap: 18px;
+  }
+  .item-tile-catalog:has(.tile-bottom-wrap) .tile-sticker-wrap {
+    margin-bottom: -18px;
   }
   .item-tile-catalog:has(.tile-bottom-wrap) .tile-main-wrap .tile-sticker-wrap .elm-sticker {
     font-size: 14px;
